@@ -1,0 +1,425 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+
+:root {
+  --body-font: "Rubik", "Roboto", sans-serif;
+  --text-color: #000;
+  --background: #fff;
+  --roleColor: #8c4ade;
+  color-scheme: light dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  tap-highlight-color: rgba(0, 0, 0, 0);
+  outline: none;
+}
+::-webkit-scrollbar {
+  display: none;
+}
+*,
+::before,
+::after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+body {
+  font-family: var(--body-font);
+  margin: 0;
+  background: var(--background);
+}
+
+/* ---------------------------------------------------------------------- */
+/* STYLING NAVBAR */
+.nav-container {
+  padding: 8px 30px;
+  margin: 0 auto;
+}
+
+.left {
+  display: flex;
+  align-items: center;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  width: 75px;
+  height: 75px;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.mobile-logo {
+  display: none;
+}
+
+.logo-text {
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--text-color);
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+li {
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: all 300ms ease;
+}
+
+li a {
+  color: var(--text-color);
+  position: relative;
+}
+
+li a:after {
+  content: "";
+  position: absolute;
+  background-color: var(--text-color);
+  border-radius: 2px;
+  height: 2px;
+  width: 0;
+  left: 2px;
+  bottom: -8px;
+  transition: 0.3s;
+}
+
+li:hover a::after {
+  width: 94%;
+}
+
+.theme {
+  background: transparent;
+  border: none;
+}
+
+.openMenu {
+  margin: 20px;
+  display: none;
+  cursor: pointer;
+  align-items: center;
+}
+
+.openMenu-icon,
+.closeMenu-icon {
+  font-size: 2rem;
+  color: var(--text-color);
+  border: none;
+  background: transparent;
+}
+
+.closeMenu {
+  display: none;
+  cursor: pointer;
+}
+
+.sun,
+.moon {
+  padding: 12px 10px;
+  cursor: pointer;
+}
+
+.moon {
+  color: #000;
+}
+
+.sun {
+  display: none;
+  color: #fff;
+}
+
+/* END NAVBAR */
+/* ---------------------------------------------------------------------- */
+/* MAKING NAVBAR RESPONSIVE */
+@media (max-width: 800px) {
+  .nav-container {
+    padding: 6px 10px;
+  }
+
+  .logo,
+  .mobile-logo {
+    width: 90px;
+    height: 90px;
+  }
+
+  .mobile-logo {
+    display: block;
+    position: absolute;
+    top: 6px;
+    left: 10px;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .mainMenu {
+    transition: height 500ms ease;
+    height: 0;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    right: 0px;
+    left: 0px;
+    z-index: 10;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: var(--background);
+  }
+
+  li {
+    font-size: 1.5rem;
+    margin: 8px;
+  }
+
+  .open {
+    height: 100vh;
+  }
+
+  .closeMenu {
+    display: block;
+    position: absolute;
+    top: 35px;
+    right: 20px;
+  }
+
+  .openMenu {
+    display: flex;
+  }
+  .mobile-theme {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .nav-container {
+    padding: 8px 10px;
+  }
+  .logo {
+    width: 90px;
+    height: 90px;
+  }
+  .logo-text {
+    display: none;
+  }
+
+  .openMenu-icon,
+  .closeMenu-icon {
+    font-size: 1.75rem;
+  }
+  .about-logo {
+    width: 125px;
+    height: 125px;
+  }
+
+  .about-superior-text {
+    font-size: 0.92rem;
+  }
+  .footer-container {
+    flex-direction: column;
+    gap: 0;
+  }
+  .core-heading,
+  .hon-heading,
+  .om-heading {
+    font-size: 1.1rem;
+  }
+
+  .content .img {
+    width: 70px;
+    height: 70px;
+  }
+
+  .name {
+    font-size: 1rem;
+  }
+
+  .role {
+    font-size: 0.7rem;
+  }
+
+  .goTop {
+    right: 20px;
+  }
+}
+
+/* END OF RESPONSIVE */
+/* ---------------------------------------------------------------------- */
+/* GALLERY */
+.container {
+  padding: 30px 0;
+  margin: auto;
+  max-width: 1200px;
+  overflow: hidden;
+}
+
+.gallery-wrap {
+  padding: 5px 40px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 70vh;
+  gap: 5px;
+  overflow-x: auto;
+  flex-wrap: nowrap;
+}
+
+.item {
+  overflow: hidden;
+  min-width: 109px;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-repeat: none;
+  transition: min-width 0.8s ease, filter 0.8s ease, box-shadow 0.8s ease;
+  filter: blur(1px);
+  cursor: grab;
+  border-radius: 25px;
+}
+
+.focused {
+  min-width: 210px;
+  filter: blur(0px);
+  box-shadow: 0 0 0 1px #8c4ade, 0 0 0 2px #ee37b6, 0 0 0 3px #ff5587,
+    0 0 0 4px #ff8d60, 0 0 0 5px #ffc652, 0 0 0 6px #f9f871;
+}
+
+.focused-small {
+  min-width: 210px;
+  filter: blur(0px);
+  box-shadow: 0 0 0 1px #8c4ade, 0 0 0 2px #ee37b6, 0 0 0 3px #ff5587,
+    0 0 0 4px #ff8d60, 0 0 0 5px #ffc652, 0 0 0 6px #f9f871;
+}
+
+.item-1 {
+  background-image: url("/Projects/Superior/assets/img/About_Team.png");
+}
+
+.item-2 {
+  background-image: url("/Projects/Superior/assets/img/Aboutphone.png");
+}
+
+.item-3 {
+  background-image: url("/Projects/Superior/assets/img/Aboutphone_2.png");
+}
+
+.item-4 {
+  background-image: url("/Projects/Superior/assets/img/Appdrawr.png");
+}
+
+.item-5 {
+  background-image: url("/Projects/Superior/assets/img/Launcher.png");
+}
+
+.item-6 {
+  background-image: url("/Projects/Superior/assets/img/Lockscreen.png");
+}
+
+.item-7 {
+  background-image: url("/Projects/Superior/assets/img/QSPanel.png");
+}
+
+.item-8 {
+  background-image: url("/Projects/Superior/assets/img/QSPanel_2.png");
+}
+
+.item-9 {
+  background-image: url("/Projects/Superior/assets/img/Settings.png");
+}
+
+.item-10 {
+  background-image: url("/Projects/Superior/assets/img/SuperiorLab.png");
+}
+
+.nav-btn {
+  position: absolute;
+  top: 50%;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background: var(--text-color);
+  color: var(--background);
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+}
+
+.left-btn {
+  left: 20px;
+}
+
+.right-btn {
+  right: 20px;
+}
+/* END OF GALLERY */
+/* ---------------------------------------------------------------------- */
+/* RESPONSIVE GALLERY */
+@media (max-width: 1300px) {
+  .container {
+    max-width: 1000px;
+  }
+}
+@media (max-width: 1100px) {
+  .container {
+    max-width: 800px;
+  }
+}
+@media (max-width: 900px) {
+  .container {
+    max-width: 620px;
+  }
+}
+@media (max-width: 700px) {
+  .container {
+    max-width: 220px;
+  }
+  .gallery-wrap {
+    padding-left: 5px;
+  }
+  .item {
+    min-width: 210px;
+  }
+}
+
+@media (max-width: 400px) {
+  .left-btn {
+    left: 12px;
+  }
+
+  .right-btn {
+    right: 12px;
+  }
+}
+/* END */
