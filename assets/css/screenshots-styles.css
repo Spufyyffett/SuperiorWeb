@@ -74,7 +74,7 @@ nav {
 }
 
 .logo-text {
-  font-size: 1.15rem;
+  font-size: 18.4px;
   font-weight: 500;
   color: var(--text-color);
 }
@@ -91,7 +91,7 @@ li {
   padding: 14px 16px;
   text-decoration: none;
   font-weight: 500;
-  font-size: 1rem;
+  font-size: 16px;
   transition: all 300ms ease;
 }
 
@@ -130,7 +130,7 @@ li:hover a::after {
 
 .openMenu-icon,
 .closeMenu-icon {
-  font-size: 2rem;
+  font-size: 32px;
   color: var(--text-color);
   border: none;
   background: transparent;
@@ -198,7 +198,7 @@ li:hover a::after {
   }
 
   li {
-    font-size: 1.5rem;
+    font-size: 24px;
     margin: 8px;
   }
 
@@ -235,7 +235,7 @@ li:hover a::after {
 
   .openMenu-icon,
   .closeMenu-icon {
-    font-size: 1.75rem;
+    font-size: 28px;
   }
   .about-logo {
     width: 125px;
@@ -243,7 +243,7 @@ li:hover a::after {
   }
 
   .about-superior-text {
-    font-size: 0.92rem;
+    font-size: 14.72px;
   }
   .footer-container {
     flex-direction: column;
@@ -252,7 +252,7 @@ li:hover a::after {
   .core-heading,
   .hon-heading,
   .om-heading {
-    font-size: 1.1rem;
+    font-size: 17.6px;
   }
 
   .content .img {
@@ -261,11 +261,11 @@ li:hover a::after {
   }
 
   .name {
-    font-size: 1rem;
+    font-size: 16px;
   }
 
   .role {
-    font-size: 0.7rem;
+    font-size: 11.2px;
   }
 
   .goTop {
