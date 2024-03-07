@@ -233,10 +233,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
   let currentIndex = 0;
 
+  const removeFocusedClass = () => {
+    items.forEach((item) => {
+      item.classList.remove("focused");
+    });
+  };
+
   // Function to handle item navigation for small screens
   const navigateItemsSmallScreen = (direction) => {
-    items[currentIndex].classList.remove("focused");
-    items[currentIndex].classList.remove("focused-small");
+    removeFocusedClass();
 
     if (direction === "next") {
       currentIndex = (currentIndex + 1) % items.length;
@@ -244,18 +249,12 @@ document.addEventListener("DOMContentLoaded", function () {
       currentIndex = (currentIndex - 1 + items.length) % items.length;
     }
 
-    items[currentIndex].classList.add("focused-small");
     items[currentIndex].focus();
   };
 
-  // Check if the screen width is less than 700px
   if (window.innerWidth <= 700) {
-    // Event listeners for chevron buttons for small screens
     leftBtn.addEventListener("click", () => navigateItemsSmallScreen("prev"));
     rightBtn.addEventListener("click", () => navigateItemsSmallScreen("next"));
-
-    // Set initial focus on item-1 and take 100% width for small screens
-    items[currentIndex].classList.add("focused-small");
 
     setInterval(() => {
       navigateItemsSmallScreen("next");
