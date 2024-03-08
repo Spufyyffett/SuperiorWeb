@@ -162,6 +162,7 @@ function toLight() {
     role.style.color = textColor;
   }
 }
+document.addEventListener("DOMContentLoaded", toggleTheme);
 /* ------------------------------------------------------------------------------------- */
 // Scroll button
 const scrollToTopBtn = document.getElementsByClassName("goTop")[0];
@@ -228,8 +229,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 document.addEventListener("DOMContentLoaded", function () {
   const items = document.querySelectorAll(".item");
-  const leftBtn = document.getElementById("leftBtn");
-  const rightBtn = document.getElementById("rightBtn");
+  const links = document.querySelectorAll(".gallery-links a");
 
   let currentIndex = 0;
 
@@ -239,25 +239,43 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   };
 
+  const removeActiveClass = () => {
+    links.forEach((link) => {
+      link.classList.remove("active");
+    });
+  };
+
+  const addActiveClass = (index) => {
+    links[index].classList.add("active");
+  };
+
   // Function to handle item navigation for small screens
-  const navigateItemsSmallScreen = (direction) => {
+  const navigateItemsSmallScreen = () => {
     removeFocusedClass();
-
-    if (direction === "next") {
-      currentIndex = (currentIndex + 1) % items.length;
-    } else {
-      currentIndex = (currentIndex - 1 + items.length) % items.length;
-    }
-
+    removeActiveClass();
+    currentIndex = (currentIndex + 1) % items.length;
     items[currentIndex].focus();
+    addActiveClass(currentIndex);
+  };
+
+  const handleLinkClick = (index) => {
+    removeFocusedClass();
+    removeActiveClass();
+    currentIndex = index;
+    items[currentIndex].focus();
+    addActiveClass(currentIndex);
   };
 
   if (window.innerWidth <= 700) {
-    leftBtn.addEventListener("click", () => navigateItemsSmallScreen("prev"));
-    rightBtn.addEventListener("click", () => navigateItemsSmallScreen("next"));
-
     setInterval(() => {
-      navigateItemsSmallScreen("next");
+      navigateItemsSmallScreen();
     }, 4000);
   }
+
+  links.forEach((link, index) => {
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      handleLinkClick(index);
+    });
+  });
 });
